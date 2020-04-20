@@ -38,7 +38,7 @@
                 <i class="material-icons mdc-icon-button__icon">favorite_border</i>
               </button>
               <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="Share" data-mdc-ripple-is-unbounded="true">share</button>
-              <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded" title="More options" data-mdc-ripple-is-unbounded="true">person</button>
+              <button class="mdc-icon-button material-icons mdc-card__action mdc-card__action--icon--unbounded person-icon" title="More options" data-mdc-ripple-is-unbounded="true">person</button>
             </div>
           </div>
         </div>
@@ -71,6 +71,10 @@
                     
                     document.querySelector('.mdc-typography--body2').innerHTML = fullAddress.city + "<br>" + fullAddress.state + "<br>" + fullAddress.postcode + "<br>" + fullAddress.country;
                     
+                    document.querySelector('button.person-icon').addEventListener("click", function(){
+                        let lrgImg = data.results[0].picture.large;
+                        window.open(lrgImg, '_blank');
+                    });
                     
                 })
                 .catch(err => alert(err));
